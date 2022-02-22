@@ -6,7 +6,6 @@ const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 //get only workshops
 export async function getOnlyWorkshops() {
     const resp = await client.from('workshops').select('*');
-    console.log('resp', resp);
     return checkError(resp);
 }
 //get all workshops with participants
@@ -23,6 +22,12 @@ export async function createParticipant(participant) {
 //create new Workshop
 export async function createWorkshop(workshop) {
     const resp = await client.from('workshops').insert(workshop);
+    return checkError(resp);
+}
+//get participant
+export async function getParticipant(id) {
+    const resp = await client.from('participants').select().match({ id: id }).single();
+    console.log('resp', resp);
     return checkError(resp);
 }
 //delete old participants

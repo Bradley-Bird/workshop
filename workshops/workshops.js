@@ -1,4 +1,4 @@
-import { checkAuth, logout, getWorkshops, deleteParticipant } from '../fetch-utils.js';
+import { checkAuth, logout, getWorkshops, getParticipant } from '../fetch-utils.js';
 import { renderParticipant, renderWorkshop } from '../render-utils.js';
 
 checkAuth();
@@ -23,8 +23,10 @@ async function displayWorkshop() {
 
             participantEl.addEventListener('click', async () => {
                 // console.log('hello', participant);
-                await deleteParticipant(participant.id);
-                displayWorkshop();
+                // await deleteParticipant(participant.id);
+                const page = await getParticipant(participant.id);
+                location.replace(`../edit/?id=${page.id}`);
+                console.log('participant', participant);
             });
             workshopEl.append(participantEl);
         }
