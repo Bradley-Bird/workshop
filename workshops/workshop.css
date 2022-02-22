@@ -1,0 +1,21 @@
+body {
+    background-color: rgb(65, 23, 23);
+}
+
+.workshop {
+    border: 2px black solid;
+    text-align: center;
+    background-color: rgba(1, 1, 1, .5);
+}
+
+.workshop-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(173, 97, 35);
+}
+
+.participant {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: whitesmoke;
+}
