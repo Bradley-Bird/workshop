@@ -11,7 +11,7 @@ logoutButton.addEventListener('click', () => {
 
 async function displayWorkshop() {
     const workshopsEl = document.getElementById('workshop-list');
-
+    workshopsEl.textContent = '';
     const workshops = await getWorkshops();
     for (let workshop of workshops) {
         const workshopEl = renderWorkshop(workshop);

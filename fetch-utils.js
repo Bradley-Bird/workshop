@@ -7,11 +7,14 @@ const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 //get all workshops with participants
 export async function getWorkshops() {
     const resp = await client.from('workshops').select(`*, participants (*)`);
-    console.log(resp);
     return checkError(resp);
 }
-getWorkshops();
-
+//add new participants
+export async function createParticipant(participant) {
+    const resp = await client.from('participants').insert(participant);
+    console.log('createData', resp);
+    return checkError(resp);
+}
 //premade
 export function getUser() {
     return client.auth.session() && client.auth.session().user;
