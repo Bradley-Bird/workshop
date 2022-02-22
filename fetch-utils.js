@@ -24,6 +24,14 @@ export async function createWorkshop(workshop) {
     const resp = await client.from('workshops').insert(workshop);
     return checkError(resp);
 }
+//change workshop
+export async function changeWorkshop({ workshop_id, id }) {
+    const resp = await client
+        .from('participants')
+        .update({ workshop_id: workshop_id })
+        .eq('id', id);
+    return checkError(resp);
+}
 //get participant
 export async function getParticipant(id) {
     const resp = await client.from('participants').select().match({ id: id }).single();
