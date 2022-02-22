@@ -12,7 +12,7 @@ export async function getWorkshops() {
 //add new participants
 export async function createParticipant(participant) {
     const resp = await client.from('participants').insert(participant);
-    console.log('createData', resp);
+    // console.log('createData', resp);
     return checkError(resp);
 }
 //delete old participants
