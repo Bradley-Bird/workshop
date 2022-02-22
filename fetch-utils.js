@@ -4,6 +4,15 @@ const SUPABASE_KEY =
 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
+//get all workshops with participants
+export async function getWorkshops() {
+    const resp = await client.from('workshops').select(`*, participants (*)`);
+    console.log(resp);
+    return checkError(resp);
+}
+getWorkshops();
+
+//premade
 export function getUser() {
     return client.auth.session() && client.auth.session().user;
 }
