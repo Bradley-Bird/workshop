@@ -15,6 +15,11 @@ export async function createParticipant(participant) {
     console.log('createData', resp);
     return checkError(resp);
 }
+//delete old participants
+export async function deleteParticipant(id) {
+    const resp = await client.from('participants').delete().match({ id: id }).single();
+    return checkError(resp);
+}
 //premade
 export function getUser() {
     return client.auth.session() && client.auth.session().user;
