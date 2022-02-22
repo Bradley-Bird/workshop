@@ -5,6 +5,11 @@ checkAuth();
 
 const form = document.getElementById('add-workshop');
 const logoutButton = document.getElementById('logout');
+const homeButton = document.getElementById('home');
+
+homeButton.addEventListener('click', () => {
+    location.replace('../');
+});
 
 logoutButton.addEventListener('click', () => {
     logout();
