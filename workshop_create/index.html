@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="../styles/reset.css">
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/home.css">
-    <link rel="stylesheet" href="../workshops/workshop.css">
-    <title>Workshops</title>
+    <link rel="stylesheet" href="./w-create.css">
+    <title>Workshop Creation</title>
 </head>
 
 <body>
@@ -23,20 +23,18 @@
     <button id="logout">Logout</button>
     <main>
         <h1>Workshops!</h1>
-        <a href="/create/index.html">Add new participant!</a>
-        <a href="/workshop_create/">Create new Workshop!</a>
-        <div id="workshop-list">
-            <!-- <div class="workshop">
-                <p class="workshop-name">10xGravity Yoga
-                </p>
-                <p class="participant">Goku</p>
-            </div> -->
+        <!-- <a href="/create/index.html">Add new participant!</a> -->
+        <div id="form-container">
+            <form name="add-workshop" id="add-workshop">
+                <input type="text" name="workshop" id="workshop">
+                <button>Submit</button>
+            </form>
         </div>
     </main>
     <footer>
         <div class="copy gutter-right">&copy; 2021 Alchemy Code Lab</div>
     </footer>
-    <script type="module" src="./workshops.js"></script>
+    <script type="module" src="./w-create.js"></script>
 </body>
 
 </html>

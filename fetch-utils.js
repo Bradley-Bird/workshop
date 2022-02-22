@@ -15,6 +15,11 @@ export async function createParticipant(participant) {
     // console.log('createData', resp);
     return checkError(resp);
 }
+//create new Workshop
+export async function createWorkshop(workshop) {
+    const resp = await client.from('workshops').insert(workshop);
+    return checkError(resp);
+}
 //delete old participants
 export async function deleteParticipant(id) {
     const resp = await client.from('participants').delete().match({ id: id }).single();
