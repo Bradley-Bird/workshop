@@ -1,4 +1,4 @@
-import { renderParticipant, renderWorkshop } from '../render-utils.js';
+import { renderParticipant, renderWorkshop, renderOnlyWorkshops } from '../render-utils.js';
 
 const test = QUnit.test;
 
@@ -27,6 +27,22 @@ test('should return p(class participant) ', (expect) => {
     // Call the function you're testing and set the result to a const
     const actual = renderParticipant({
         name: 'Goku',
+    });
+
+    //Expect
+    // Make assertions about what is expected versus the actual result
+    expect.equal(actual.outerHTML, expected);
+});
+
+test('should return div(class current-workshops)with ptag(class workshop)) ', (expect) => {
+    //Arrange
+    // Set up your arguments and expectations
+    const expected = `<div class="current-workshops"><p class="workshop">Galactic Quad PUMPER</p></div>`;
+
+    //Act
+    // Call the function you're testing and set the result to a const
+    const actual = renderOnlyWorkshops({
+        name: 'Galactic Quad PUMPER',
     });
 
     //Expect
