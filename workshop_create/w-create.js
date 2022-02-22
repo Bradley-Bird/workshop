@@ -1,4 +1,5 @@
-import { createWorkshop, checkAuth, logout } from '../fetch-utils.js';
+import { createWorkshop, checkAuth, logout, getOnlyWorkshops } from '../fetch-utils.js';
+import { renderOnlyWorkshops } from '../render-utils.js';
 
 checkAuth();
 
@@ -9,6 +10,21 @@ logoutButton.addEventListener('click', () => {
     logout();
 });
 
+async function displayOnlyWorkshops() {
+    const workshopsEl = document.getElementById('info');
+    workshopsEl.textContent = '';
+
+    const workshops = await getOnlyWorkshops();
+
+    for (let workshop of workshops) {
+        console.log(workshop);
+        const workshopEl = renderOnlyWorkshops(workshop);
+        workshopsEl.append(workshopEl);
+    }
+    return workshopsEl;
+}
+displayOnlyWorkshops();
+
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -17,4 +33,5 @@ form.addEventListener('submit', async (e) => {
         name: data.get('workshop'),
     };
     await createWorkshop(newWorkshop);
+    displayOnlyWorkshops();
 });
