@@ -3,6 +3,11 @@ import { getWorkshops, logout, checkAuth, createParticipant } from '../fetch-uti
 checkAuth();
 const form = document.getElementById('add-participant');
 const logoutButton = document.getElementById('logout');
+const homeButton = document.getElementById('home');
+
+homeButton.addEventListener('click', () => {
+    location.replace('../');
+});
 
 logoutButton.addEventListener('click', () => {
     logout();
