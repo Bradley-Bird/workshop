@@ -11,7 +11,12 @@ checkAuth();
 const params = new URLSearchParams(window.location.search);
 const form = document.getElementById('change');
 const logoutButton = document.getElementById('logout');
+const deleteButton = document.getElementById('delete');
 
+deleteButton.addEventListener('click', async () => {
+    await deleteParticipant(params.get('id'));
+    location.replace('../');
+});
 logoutButton.addEventListener('click', () => {
     logout();
 });
@@ -40,4 +45,5 @@ form.addEventListener('submit', async (e) => {
         id: params.get('id'),
     };
     await changeWorkshop(newWorkshop);
+    location.replace('../');
 });
