@@ -29,18 +29,34 @@ body {
 }
 
 a {
-    color: var(--color1);
+    color: var(--color4);
+    background-color: var(--color2);
+    font-size: larger;
+    font-weight: bold;
+    border: 1px black solid;
+    margin-right: 10px;
+    padding: 5px;
+}
+
+a:hover {
+    background-color: var(--color1);
 }
 
 .workshop {
     border: 2px black solid;
     text-align: center;
     background-color: var(--color4);
+    width: 400px;
 }
 
-.workshop-name {
+.workshop-name, .workshop {
     font-size: 1.5rem;
     font-weight: bold;
+    color: var(--color2);
+}
+
+.participant:hover {
+
     color: var(--color2);
 }
 
@@ -50,12 +66,34 @@ a {
     color: var(--color1);
 }
 
+#workshop-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav {
+    text-align: center;
+}
+
+nav>h1 {
+    font-size: 50px;
+}
+
 main {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-bottom: calc(var(--footer-height));
+}
+
+main>.hint {
+    font-size: medium;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: var(--color2);
 }
 
 section {
